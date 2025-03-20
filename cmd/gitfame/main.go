@@ -5,6 +5,7 @@ import (
 	_ "embed"
 	"encoding/json"
 	"flag"
+	"git-fame/internal"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -18,7 +19,7 @@ var extToLang = map[string]string{}
 
 func main() {
 	pwd, _ := os.Getwd()
-	repo := flag.String("repository", pwd+"/yamlembed", "Путь до Git репозитория")
+	repo := flag.String("repository", pwd, "Путь до Git репозитория")
 	rev := flag.String("revision", "HEAD", "Указатель на коммит")
 	orderBy := flag.String("order-by", "lines", "Ключ сортировки: lines, commits, files")
 	useCommitter := flag.Bool("use-committer", false, "Использовать коммиттера вместо автора")
